@@ -24,9 +24,9 @@ export default function Navbar(props) {
                         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                         <button className="btn btn-outline-primary" type="submit">Search</button>
                     </form> */}
-                    <div style={{ backgroundColor: '#FEC260', width: 20, height: 20, borderRadius: 5 }} className='mx-2' onClick={props.toggleYellowMode}></div>
-                    <div style={{ backgroundColor: '#2D4263', width: 20, height: 20, borderRadius: 5 }} className='mx-2' onClick={props.togglePrimaryMode}></div>
-                    <div style={{ backgroundColor: '#DA0037', width: 20, height: 20, borderRadius: 5 }} className='mx-2' onClick={props.toggleRedMode}></div>
+                    <div style={{ backgroundColor: '#FEC260', width: 20, height: 20, borderRadius: 5 }} className='mx-2 my-1' onClick={props.toggleYellowMode}></div>
+                    <div style={{ backgroundColor: '#2D4263', width: 20, height: 20, borderRadius: 5 }} className='mx-2 my-1' onClick={props.togglePrimaryMode}></div>
+                    <div style={{ backgroundColor: '#DA0037', width: 20, height: 20, borderRadius: 5 }} className='mx-2 my-1' onClick={props.toggleRedMode}></div>
                     <div className={`form-check form-switch text-${props.lableText}`}>
                         <input className="form-check-input" type="checkbox" onClick={props.toggleMode} id="flexSwitchCheckDefault" />
                         <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable Dark Mode</label>

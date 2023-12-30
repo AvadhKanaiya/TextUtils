@@ -69,7 +69,7 @@ function App() {
       setBlueMode('primary');
       setYellowMode('light');
       setRedMode('light')
-      setMode('yellow');
+      setMode('light');
       setBackground('primary');
       document.body.style.backgroundColor = '#2D4263';
     }
@@ -99,12 +99,12 @@ function App() {
   return (
     <>
       <Router>
-        <Navbar title={"TextUtils"} mode={mode} redMode={redMode} toggleRedMode={toggleRedMode} blueMode={blueMode} togglePrimaryMode={togglePrimaryMode} navbarBg={background} yellowMode={yellowMode} toggleYellowMode={toggleYellowMode} toggleMode={toggleMode} lableText={labelText}></Navbar >
+        <Navbar title={"TextUtils"} toggleRedMode={toggleRedMode} togglePrimaryMode={togglePrimaryMode} navbarBg={background} toggleYellowMode={toggleYellowMode} toggleMode={toggleMode} lableText={labelText}></Navbar >
         <Alert alert={alert} />
         <div className="container my-3">
           <Routes>
             <Route exact path='/' element={<TextForm showAlert={showAlert} heading="Enter the text below to analyze" mode={background}></TextForm>} />
-            <Route exact path='/about' element={<About />} />
+            <Route exact path='/about' element={<About background={background} />} />
           </Routes>
         </div >
       </Router>
