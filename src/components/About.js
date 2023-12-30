@@ -1,12 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 export default function About(props) {
-    const [darkModeStyle, setDarkModeStyle] = useState({
-        color: 'black',
-        backgroundColor: 'white'
-    });
-
-
     return (
         <div className={`container bg-${props.background}`} style={{ color: props.background !== 'light' ? 'white' : 'black' }}>
             <h1 className='my-4'>About Us</h1>

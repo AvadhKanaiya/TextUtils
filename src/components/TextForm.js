@@ -22,12 +22,8 @@ export default function TextForm(props) {
     }
 
     const copyText = () => {
-        let textarea = document.getElementById('mybox');
-        textarea.select();
-        navigator.clipboard.writeText(textarea.value)
-        textarea.setSelectionRange(0, 0);
+        navigator.clipboard.writeText(text)
         props.showAlert('Copied to clipboard', 'success');
-        // alert("Congrats your text has been copied");
     }
 
     const handleOnChange = (event) => {
@@ -70,16 +66,16 @@ export default function TextForm(props) {
                 <div className="mb-3">
                     <textarea className={`form-control bg-${props.mode}`} value={text} onChange={handleOnChange} style={{ color: props.mode !== 'light' ? 'white' : 'black' }} id="mybox" rows="8"></textarea>
                 </div>
-                <button className='btn btn-primary mx-2 my-2' onClick={handleUppercase}>Convert To Uppercase</button>
-                <button className='btn btn-primary mx-2 my-2' onClick={handleLowercase}>Convert To Lowerrcase</button>
-                <button className='btn btn-primary mx-2 my-2' onClick={copyText}>Copy Text</button>
-                <button className='btn btn-primary mx-2 my-2' onClick={handleToggle} id='speech'>{speaking ? 'Stop speech' : 'Hear Your Text'}</button>
-                <button className='btn btn-danger mx-2 my-2' onClick={handleClearText}>Clear Text</button>
+                <button disabled={text.length === 0} className='btn btn-primary mx-2 my-2' onClick={handleUppercase}>Convert To Uppercase</button>
+                <button disabled={text.length === 0} className='btn btn-primary mx-2 my-2' onClick={handleLowercase}>Convert To Lowerrcase</button>
+                <button disabled={text.length === 0} className='btn btn-primary mx-2 my-2' onClick={copyText}>Copy Text</button>
+                <button disabled={text.length === 0} className='btn btn-primary mx-2 my-2' onClick={handleToggle} id='speech'>{speaking ? 'Stop speech' : 'Hear Your Text'}</button>
+                <button disabled={text.length === 0} className='btn btn-danger mx-2 my-2' onClick={handleClearText}>Clear Text</button>
             </div >
             <div className='container my-3' style={{ color: props.mode !== 'light' ? 'white' : 'black' }}>
                 <h2>Your text summary</h2>
-                <p>{text.split(" ").filter((element) => { return element.length !== 0 }).length} words, {text.length} characters, </p>
-                <p>{0.008 * text.split(" ").length}Minutes to read</p>
+                <p>{text.split(/\s+/).filter((element) => { return element.length !== 0 }).length} words, {text.length} characters, </p>
+                <p>{0.008 * text.split(" ").filter((element) => { return element.length !== 0 }).length} Minutes to read</p>
                 <h2>Preview</h2>
                 <p>{text.length > 0 ? text : "Enter the text into the above inputbox to preview it here"}</p>
             </div>

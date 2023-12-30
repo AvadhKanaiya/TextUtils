@@ -37,14 +37,12 @@ function App() {
       setRedMode('light');
       document.body.style.backgroundColor = '#2C3333';
       showAlert("Dark mode has been enabled", "success");
-      document.title = "TextUtils - Dark Mode";
     } else {
       setMode('light');
       setLabelText('dark');
       setBackground('light');
       document.body.style.backgroundColor = 'white';
       showAlert("Light mode has been enabled", "success");
-      document.title = "TextUtils - Light Mode";
     }
   }
 
